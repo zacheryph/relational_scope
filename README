@@ -1,13 +1,31 @@
 RelationalScope
 ===============
 
-Introduction goes here.
+This plugin makes it possible to filter a specific model using the
+named_scope's of one of its relations.  This prevents making duplicate
+named_scopes in multiple models.
 
 
 Example
 =======
 
-Example goes here.
+class Post < ActiveRecord::Base
+	belongs_to :author
+
+	has_relational_scope :author, :prefix => 'a'
+end
+
+class User < ActiveRecord::Base
+	named_scope :admins, :conditions => {:admin => true}
+end
+
+In your Controller you can go:
+
+@posts = Post.a_admins
+
+This will fetch all and only posts where the author is an admin.
+
+Without the :prefix option this would be called as Post.author_admins
 
 
 Copyright (c) 2009 Zachery Hostens, released under the MIT license
