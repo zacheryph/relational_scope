@@ -1,3 +1,12 @@
+!!! PLEASE DO NOT USE RELATIONAL_SCOPE !!!
+__________________________________________
+
+i have not updated relational_scope since i created it.
+If you are looking for something similar try searchlogic:
+
+    http://github.com/binarylogic/searchlogic
+
+
 RelationalScope
 ===============
 
